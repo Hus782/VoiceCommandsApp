@@ -14,6 +14,7 @@
 		0511F56E2A8684FD003EEBDD /* VoiceCommandsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F56D2A8684FD003EEBDD /* VoiceCommandsAppTests.swift */; };
 		0511F5782A8684FD003EEBDD /* VoiceCommandsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */; };
 		0511F57A2A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */; };
+		057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B89352A876A65008AE42C /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0511F5732A8684FD003EEBDD /* VoiceCommandsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceCommandsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITests.swift; sourceTree = "<group>"; };
 		0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		057B89352A876A65008AE42C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				0511F55E2A8684FB003EEBDD /* ContentView.swift */,
 				0511F5602A8684FC003EEBDD /* Assets.xcassets */,
 				0511F5622A8684FC003EEBDD /* Preview Content */,
+				057B89352A876A65008AE42C /* SpeechRecognizer.swift */,
 			);
 			path = VoiceCommandsApp;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				0511F55F2A8684FB003EEBDD /* ContentView.swift in Sources */,
 				0511F55D2A8684FB003EEBDD /* VoiceCommandsAppApp.swift in Sources */,
+				057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +423,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceCommandsApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone usage";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "speech recognition";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,6 +453,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceCommandsApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone usage";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "speech recognition";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

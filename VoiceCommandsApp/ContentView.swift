@@ -7,30 +7,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        
-        VStack {
-         
-            List {
-                Section{
-                    CardView(text: "Status")
-                    CardView(text: "Current")
-                }
-                Section(header: Text("Values")) {
-                    CardView(text: "Testing")
-                    CardView(text: "Testing")
-                    CardView(text: "Testing")
-                }
-               }
-            Button("Button title") {
-                print("Button tapped!")
-            }
-            
-        }
-//        .padding()
-    }
-}
+//struct ContentView: View {
+//    var body: some View {
+//
+//        VStack {
+//
+//            List {
+//                Section{
+//                    CardView(text: "Status")
+//                    CardView(text: "Current")
+//                }
+//                Section(header: Text("Values")) {
+//                    CardView(text: "Testing")
+//                    CardView(text: "Testing")
+//                    CardView(text: "Testing")
+//                }
+//               }
+//            Button("Button title") {
+//                print("Button tapped!")
+//            }
+//
+//        }
+////        .padding()
+//    }
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -39,7 +39,8 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CardView: View {
-    let text: String
+    let title: String
+    let content: String
 
     var body: some View {
         ZStack {
@@ -47,11 +48,12 @@ struct CardView: View {
                 .fill(.white)
 //                .shadow(radius: 5)
 
-//            VStack {
-                Text(text)
-                    .font(.largeTitle)
+            VStack {
+                Text(title)
+//                    .font(.)
                     .foregroundColor(.black)
-//            }
+                Text(content).foregroundColor(.black)
+            }
 //            .padding(20)
             .multilineTextAlignment(.center)
         }
@@ -59,11 +61,12 @@ struct CardView: View {
     }
 }
 
-enum AppState {
+enum AppState: String {
     case listeningToCommand
-    case listeningToParameters(command: String)
+    case listeningToParameters
 }
-struct Command {
+struct Command: Identifiable, Hashable {
+    let id = UUID()
     let code: String
     var value: String
     
@@ -72,26 +75,45 @@ struct Command {
         self.value = value
     }
 }
+
+enum Commands: String {
+    case code
+    case count
+    case erase
+    case back
+}
+
+
 struct Test: View {
-//    @StateObject var speechRecognizer = SpeechRecognizer()
+    @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRecording = false
     @State private var appState: AppState = .listeningToCommand
-    private let commands = ["count", "code", "erase", "back"]
+//    private let commands = ["count", "code", "erase", "back"]
     @State private var currentCommand: Command = Command()
-    private let transcript = "Code one two"
+//    private let transcript = "Code one two"
+    private let commands: [Command] = []
     var body: some View {
         VStack {
-            Text(currentCommand.code)
-                .padding()
-            Text(currentCommand.value)
-                .padding()
+            List {
+                Section{
+                    CardView(title: "Status", content: appState.rawValue)
+                    CardView(title: currentCommand.code, content: currentCommand.value)
+                    CardView(title: "Current text", content: "")
+                }
+                Section(header: Text("Values")) {
+                    ForEach(commands, id: \.self) { command in
+                        CardView(title: command.code, content: command.value)
+                    }
+                }
+            
+               }
             
             Button(action: {
                 if !isRecording {
                     startSpeechRecognition()
-//                    speechRecognizer.transcribe()
+                    speechRecognizer.transcribe()
                 } else {
-//                    speechRecognizer.stopTranscribing()
+                    speechRecognizer.stopTranscribing()
                 }
                 
                 isRecording.toggle()
@@ -105,23 +127,28 @@ struct Test: View {
             }
         }
     }
+
     
     func startSpeechRecognition() {
            // Simulated speech recognition logic
-           let recognizedWords = transcript.lowercased().split(separator: " ").map { String($0) }
+        let recognizedWords = speechRecognizer.transcript.lowercased().split(separator: " ").map { String($0) }
            
            for word in recognizedWords {
-               if commands.contains(word) {
-                   appState = .listeningToParameters(command: word)
+               switch Commands(rawValue: word) {
+               case .code:
+                   appState = .listeningToParameters
 //                   TODO: Save the last command before starting the new one
                    currentCommand = Command(code: word)
-                   
-               } else if let digitValue = digitValue(from: word) {
-                   currentCommand = Command(code: currentCommand.code, value: currentCommand.value + digitValue)
-                   appState = .listeningToParameters(command: word)
-               } else {
-                   print("Invalid word \(word)")
+               case .back, .erase, .count:
+                   appState = .listeningToCommand
+               default:
+                   if let digitValue = digitValue(from: word) {
+                       currentCommand = Command(code: currentCommand.code, value: currentCommand.value + digitValue)
+                   } else {
+                       print("Invalid word \(word)")
+                   }
                }
+        
            }
        }
     

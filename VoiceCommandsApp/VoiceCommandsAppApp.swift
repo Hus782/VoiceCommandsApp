@@ -11,7 +11,7 @@ import SwiftUI
 struct VoiceCommandsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            Test()
+            ContentView()
         }
     }
 }

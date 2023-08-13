@@ -15,6 +15,9 @@
 		0511F5782A8684FD003EEBDD /* VoiceCommandsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */; };
 		0511F57A2A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */; };
 		057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B89352A876A65008AE42C /* SpeechRecognizer.swift */; };
+		05841AFA2A88B36200FB3143 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AF92A88B36200FB3143 /* Commands.swift */; };
+		05841AFC2A88B38600FB3143 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFB2A88B38600FB3143 /* AppState.swift */; };
+		05841AFE2A88B3A600FB3143 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFD2A88B3A600FB3143 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITests.swift; sourceTree = "<group>"; };
 		0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		057B89352A876A65008AE42C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		05841AF92A88B36200FB3143 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		05841AFB2A88B38600FB3143 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		05841AFD2A88B3A600FB3143 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +102,13 @@
 		0511F55B2A8684FB003EEBDD /* VoiceCommandsApp */ = {
 			isa = PBXGroup;
 			children = (
+				05841AF82A88B35200FB3143 /* Enums */,
 				0511F55C2A8684FB003EEBDD /* VoiceCommandsAppApp.swift */,
 				0511F55E2A8684FB003EEBDD /* ContentView.swift */,
 				0511F5602A8684FC003EEBDD /* Assets.xcassets */,
 				0511F5622A8684FC003EEBDD /* Preview Content */,
 				057B89352A876A65008AE42C /* SpeechRecognizer.swift */,
+				05841AFD2A88B3A600FB3143 /* CardView.swift */,
 			);
 			path = VoiceCommandsApp;
 			sourceTree = "<group>";
@@ -128,6 +136,15 @@
 				0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */,
 			);
 			path = VoiceCommandsAppUITests;
+			sourceTree = "<group>";
+		};
+		05841AF82A88B35200FB3143 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				05841AF92A88B36200FB3143 /* Commands.swift */,
+				05841AFB2A88B38600FB3143 /* AppState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0511F55F2A8684FB003EEBDD /* ContentView.swift in Sources */,
+				05841AFC2A88B38600FB3143 /* AppState.swift in Sources */,
 				0511F55D2A8684FB003EEBDD /* VoiceCommandsAppApp.swift in Sources */,
 				057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */,
+				05841AFE2A88B3A600FB3143 /* CardView.swift in Sources */,
+				05841AFA2A88B36200FB3143 /* Commands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,15 @@ import Foundation
 import Speech
 import SwiftUI
 
-/// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
-class SpeechRecognizer: ObservableObject {
+// Protocol used for mocking when writing unit tests
+protocol SpeechRecognizerProtocol: AnyObject {
+    func transcribe()
+    func stopTranscribing()
+    var delegate: SpeechRecognizerDelegate? { set get }
+}
+
+//A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
+final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -30,13 +37,12 @@ class SpeechRecognizer: ObservableObject {
         
     }
     
-    @Published var transcript: String = ""
-    
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
-    
+    weak var delegate: SpeechRecognizerDelegate?
+
     init() {
             recognizer = SFSpeechRecognizer()
             
@@ -61,7 +67,7 @@ class SpeechRecognizer: ObservableObject {
             reset()
         }
     /// Reset the speech recognizer.
-        func reset() {
+        private func reset() {
             task?.cancel()
             audioEngine?.stop()
             audioEngine = nil
@@ -135,7 +141,7 @@ class SpeechRecognizer: ObservableObject {
         }
     
     private func speak(_ message: String) {
-            transcript = message
+        delegate?.didUpdateTranscript(message)
     }
     
     private func speakError(_ error: Error) {
@@ -145,7 +151,7 @@ class SpeechRecognizer: ObservableObject {
             } else {
                 errorMessage += error.localizedDescription
             }
-            transcript = "<< \(errorMessage) >>"
+        delegate?.didUpdateTranscript(errorMessage)
     }
 }
 

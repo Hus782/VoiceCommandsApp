@@ -26,7 +26,7 @@ struct CardView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
                 }
-                Text(title)
+                Text("current_command_code \(title)")
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))

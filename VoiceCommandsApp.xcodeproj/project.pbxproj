@@ -15,6 +15,8 @@
 		0511F5782A8684FD003EEBDD /* VoiceCommandsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */; };
 		0511F57A2A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */; };
 		055025862A8A1AD900C00C17 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055025852A8A1AD900C00C17 /* SpeechViewModel.swift */; };
+		0577274B2A8A639600132318 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577274A2A8A639600132318 /* Languages.swift */; };
+		0577274E2A8A68FB00132318 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 057727502A8A68FB00132318 /* Localizable.strings */; };
 		057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B89352A876A65008AE42C /* SpeechRecognizer.swift */; };
 		05841AFA2A88B36200FB3143 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AF92A88B36200FB3143 /* Commands.swift */; };
 		05841AFC2A88B38600FB3143 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFB2A88B38600FB3143 /* AppState.swift */; };
@@ -50,6 +52,9 @@
 		0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITests.swift; sourceTree = "<group>"; };
 		0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		055025852A8A1AD900C00C17 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
+		0577274A2A8A639600132318 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
+		0577274F2A8A68FB00132318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		057727512A8A697500132318 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		057B89352A876A65008AE42C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		05841AF92A88B36200FB3143 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		05841AFB2A88B38600FB3143 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 				0511F5602A8684FC003EEBDD /* Assets.xcassets */,
 				0511F5622A8684FC003EEBDD /* Preview Content */,
 				057B89352A876A65008AE42C /* SpeechRecognizer.swift */,
+				057727502A8A68FB00132318 /* Localizable.strings */,
 				05841AFD2A88B3A600FB3143 /* CardView.swift */,
 				055025852A8A1AD900C00C17 /* SpeechViewModel.swift */,
 			);
@@ -146,6 +152,7 @@
 			children = (
 				05841AF92A88B36200FB3143 /* Commands.swift */,
 				05841AFB2A88B38600FB3143 /* AppState.swift */,
+				0577274A2A8A639600132318 /* Languages.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 0511F5502A8684FB003EEBDD;
 			productRefGroup = 0511F55A2A8684FB003EEBDD /* Products */;
@@ -255,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0511F5642A8684FC003EEBDD /* Preview Assets.xcassets in Resources */,
+				0577274E2A8A68FB00132318 /* Localizable.strings in Resources */,
 				0511F5612A8684FC003EEBDD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0511F55F2A8684FB003EEBDD /* ContentView.swift in Sources */,
+				0577274B2A8A639600132318 /* Languages.swift in Sources */,
 				05841AFC2A88B38600FB3143 /* AppState.swift in Sources */,
 				0511F55D2A8684FB003EEBDD /* VoiceCommandsAppApp.swift in Sources */,
 				055025862A8A1AD900C00C17 /* SpeechViewModel.swift in Sources */,
@@ -322,11 +332,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		057727502A8A68FB00132318 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0577274F2A8A68FB00132318 /* en */,
+				057727512A8A697500132318 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		0511F57B2A8684FD003EEBDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -379,6 +402,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -387,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -432,6 +457,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

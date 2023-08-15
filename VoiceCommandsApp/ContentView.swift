@@ -48,8 +48,8 @@ struct ContentView: View {
             
             List {
                 Section{
-                    CardView(title: "Status", content: viewModel.appState.rawValue)
-                    CardView(title: "Command: " + viewModel.currentCommand.code, content: "Value: " + viewModel.currentCommand.value, hasTitle: true)
+                    CardView(title: "current_status", content: viewModel.appState.rawValue)
+                    CardView(title: viewModel.currentCommand.code, content: "current_command_value" + viewModel.currentCommand.value, hasTitle: true)
                     CardView(title: viewModel.transcript, content: "")
                 }
                 Section(header: Text("Values")) {

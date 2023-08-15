@@ -43,8 +43,9 @@ final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
     private let recognizer: SFSpeechRecognizer?
     weak var delegate: SpeechRecognizerDelegate?
 
-    init() {
-            recognizer = SFSpeechRecognizer()
+//    Default language is English
+    init(language: Languages = .English) {
+        recognizer = SFSpeechRecognizer(locale: language.locale)
             
             Task(priority: .background) {
                 do {

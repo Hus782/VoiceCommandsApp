@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  VoiceCommandsApp
+
+  Created by user240865 on 8/14/23.
+  
+*/
+
+/*
+ Translations are same as English for now, not sure if Google translate is reliable enough here
+ */
+"current_status" = "Status";
+"current_command_code" = "Command";
+"current_command_value" = "Value";
+"commands_list_header" = "Values";
+"record_button_stop" = "Stop";
+"record_button_start" = "Start";
+"app_state" = "App state";
+"detected_speech" = "Detected speech";
+"waiting_for_commands_state" = "Waiting for commands...";
+"waiting_for_parameters_state" = "Listening to current command...";
+"clear_button" = "Clear";
+"import_button" = "Import file";

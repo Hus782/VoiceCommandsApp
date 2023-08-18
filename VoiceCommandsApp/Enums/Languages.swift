@@ -7,6 +7,8 @@
 
 import Foundation
 
+// An enum used for adding new languages
+// Only four have been added for now
 enum Languages: String {
     case English = "en"
     case German = "de"

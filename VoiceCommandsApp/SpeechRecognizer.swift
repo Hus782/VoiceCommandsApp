@@ -15,35 +15,22 @@ import SwiftUI
 protocol SpeechRecognizerProtocol: AnyObject {
     func transcribe()
     func stopTranscribing()
+    func transcribeAudio(url: URL)
     var delegate: SpeechRecognizerDelegate? { set get }
 }
 
 //A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
-    enum RecognizerError: Error {
-        case nilRecognizer
-        case notAuthorizedToRecognize
-        case notPermittedToRecord
-        case recognizerIsUnavailable
-        
-        var message: String {
-            switch self {
-            case .nilRecognizer: return "Can't initialize speech recognizer"
-            case .notAuthorizedToRecognize: return "Not authorized to recognize speech"
-            case .notPermittedToRecord: return "Not permitted to record audio"
-            case .recognizerIsUnavailable: return "Recognizer is unavailable"
-            }
-        }
-        
-    }
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
     weak var delegate: SpeechRecognizerDelegate?
-
+//    private let mockTranscription = "Code two three four Count sixty two Code one two Reset Code one one two Count five"
+    
 //    Default language is English
+//    Extra languages not implemented yet in UI
     init(language: Languages = .English) {
         recognizer = SFSpeechRecognizer(locale: language.locale)
             
@@ -67,7 +54,7 @@ final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
         deinit {
             reset()
         }
-    /// Reset the speech recognizer.
+    // Reset the speech recognizer.
         private func reset() {
             task?.cancel()
             audioEngine?.stop()
@@ -76,33 +63,29 @@ final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
             task = nil
         }
     
-    /**
-           Begin transcribing audio.
-        
-           Creates a `SFSpeechRecognitionTask` that transcribes speech to text until you call `stopTranscribing()`.
-           The resulting transcription is continuously written to the published `transcript` property.
-        */
        func transcribe() {
+//           Mock transciption for testing
+//           speak(mockTranscription)
            DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
                guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
                    self?.speakError(RecognizerError.recognizerIsUnavailable)
                    return
                }
-               
+
                do {
                    let (audioEngine, request) = try Self.prepareEngine()
                    self.audioEngine = audioEngine
                    self.request = request
-                   
+
                    self.task = recognizer.recognitionTask(with: request) { result, error in
                        let receivedFinalResult = result?.isFinal ?? false
                        let receivedError = error != nil // != nil mean there's error (true)
-                       
+
                        if receivedFinalResult || receivedError {
                            audioEngine.stop()
                            audioEngine.inputNode.removeTap(onBus: 0)
                        }
-                       
+
                        if let result = result {
                            self.speak(result.bestTranscription.formattedString)
                        }
@@ -114,6 +97,31 @@ final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
            }
        }
        
+    func transcribeAudio(url: URL) {
+        guard let recognizer = self.recognizer, recognizer.isAvailable else {
+            speakError(RecognizerError.recognizerIsUnavailable, isImporting: true)
+            return
+        }
+        
+        let request = SFSpeechURLRecognitionRequest(url: url)
+
+        // start recognition
+        recognizer.recognitionTask(with: request) { [unowned self] (result, error) in
+            // abort if we didn't get any transcription back
+            guard let result = result else {
+                print("There was an error: \(error!)")
+                return
+            }
+
+            // if we got the final transcription back, print it
+            if result.isFinal {
+                // pull out the best transcription...
+                print(result.bestTranscription.formattedString)
+                speak(result.bestTranscription.formattedString, isImporting: true)
+            }
+        }
+    }
+    
        private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {
            let audioEngine = AVAudioEngine()
            
@@ -136,23 +144,23 @@ final class SpeechRecognizer: ObservableObject, SpeechRecognizerProtocol {
            return (audioEngine, request)
        }
     
-    /// Stop transcribing audio.
-        func stopTranscribing() {
+    // Stop transcribing audio.
+    func stopTranscribing() {
             reset()
-        }
-    
-    private func speak(_ message: String) {
-        delegate?.didUpdateTranscript(message)
     }
     
-    private func speakError(_ error: Error) {
+    private func speak(_ message: String, isImporting: Bool = false) {
+        delegate?.didUpdateTranscript(message, isImporting: isImporting)
+    }
+    
+    private func speakError(_ error: Error, isImporting: Bool = false) {
             var errorMessage = ""
             if let error = error as? RecognizerError {
                 errorMessage += error.message
             } else {
                 errorMessage += error.localizedDescription
             }
-        delegate?.didUpdateTranscript(errorMessage)
+        delegate?.didUpdateTranscript(errorMessage, isImporting: isImporting)
     }
 }
 

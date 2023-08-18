@@ -14,13 +14,19 @@
 		0511F56E2A8684FD003EEBDD /* VoiceCommandsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F56D2A8684FD003EEBDD /* VoiceCommandsAppTests.swift */; };
 		0511F5782A8684FD003EEBDD /* VoiceCommandsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */; };
 		0511F57A2A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */; };
+		05462C6F2A8E6E210091D9F5 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05462C6E2A8E6E210091D9F5 /* Labels.swift */; };
+		05462C712A8E8D720091D9F5 /* AppStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05462C702A8E8D720091D9F5 /* AppStateView.swift */; };
+		05462C732A8E8FD50091D9F5 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05462C722A8E8FD50091D9F5 /* SpeechView.swift */; };
 		055025862A8A1AD900C00C17 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055025852A8A1AD900C00C17 /* SpeechViewModel.swift */; };
+		0568D3602A8F57090086203D /* RecognizerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0568D35F2A8F57090086203D /* RecognizerError.swift */; };
+		0568D3632A8F57A20086203D /* CommandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0568D3622A8F57A20086203D /* CommandModel.swift */; };
 		0577274B2A8A639600132318 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0577274A2A8A639600132318 /* Languages.swift */; };
 		0577274E2A8A68FB00132318 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 057727502A8A68FB00132318 /* Localizable.strings */; };
 		057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B89352A876A65008AE42C /* SpeechRecognizer.swift */; };
 		05841AFA2A88B36200FB3143 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AF92A88B36200FB3143 /* Commands.swift */; };
 		05841AFC2A88B38600FB3143 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFB2A88B38600FB3143 /* AppState.swift */; };
-		05841AFE2A88B3A600FB3143 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFD2A88B3A600FB3143 /* CardView.swift */; };
+		05841AFE2A88B3A600FB3143 /* CommandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05841AFD2A88B3A600FB3143 /* CommandView.swift */; };
+		058C05F02A8F7D150087E1AC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058C05EF2A8F7D150087E1AC /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +57,20 @@
 		0511F5732A8684FD003EEBDD /* VoiceCommandsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceCommandsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0511F5772A8684FD003EEBDD /* VoiceCommandsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITests.swift; sourceTree = "<group>"; };
 		0511F5792A8684FD003EEBDD /* VoiceCommandsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		05462C6E2A8E6E210091D9F5 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		05462C702A8E8D720091D9F5 /* AppStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateView.swift; sourceTree = "<group>"; };
+		05462C722A8E8FD50091D9F5 /* SpeechView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
 		055025852A8A1AD900C00C17 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
+		0568D35F2A8F57090086203D /* RecognizerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizerError.swift; sourceTree = "<group>"; };
+		0568D3622A8F57A20086203D /* CommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandModel.swift; sourceTree = "<group>"; };
 		0577274A2A8A639600132318 /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		0577274F2A8A68FB00132318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		057727512A8A697500132318 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		057B89352A876A65008AE42C /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		05841AF92A88B36200FB3143 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		05841AFB2A88B38600FB3143 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		05841AFD2A88B3A600FB3143 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		05841AFD2A88B3A600FB3143 /* CommandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandView.swift; sourceTree = "<group>"; };
+		058C05EF2A8F7D150087E1AC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,15 +121,16 @@
 		0511F55B2A8684FB003EEBDD /* VoiceCommandsApp */ = {
 			isa = PBXGroup;
 			children = (
+				058C05EE2A8F7D020087E1AC /* Extensions */,
+				0568D3652A8F5B420086203D /* Labels */,
+				0568D3642A8F57E00086203D /* Views */,
+				0568D3612A8F57910086203D /* Model */,
 				05841AF82A88B35200FB3143 /* Enums */,
 				0511F55C2A8684FB003EEBDD /* VoiceCommandsAppApp.swift */,
-				0511F55E2A8684FB003EEBDD /* ContentView.swift */,
+				057B89352A876A65008AE42C /* SpeechRecognizer.swift */,
+				055025852A8A1AD900C00C17 /* SpeechViewModel.swift */,
 				0511F5602A8684FC003EEBDD /* Assets.xcassets */,
 				0511F5622A8684FC003EEBDD /* Preview Content */,
-				057B89352A876A65008AE42C /* SpeechRecognizer.swift */,
-				057727502A8A68FB00132318 /* Localizable.strings */,
-				05841AFD2A88B3A600FB3143 /* CardView.swift */,
-				055025852A8A1AD900C00C17 /* SpeechViewModel.swift */,
 			);
 			path = VoiceCommandsApp;
 			sourceTree = "<group>";
@@ -147,14 +160,51 @@
 			path = VoiceCommandsAppUITests;
 			sourceTree = "<group>";
 		};
+		0568D3612A8F57910086203D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0568D3622A8F57A20086203D /* CommandModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0568D3642A8F57E00086203D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0511F55E2A8684FB003EEBDD /* ContentView.swift */,
+				05462C702A8E8D720091D9F5 /* AppStateView.swift */,
+				05462C722A8E8FD50091D9F5 /* SpeechView.swift */,
+				05841AFD2A88B3A600FB3143 /* CommandView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0568D3652A8F5B420086203D /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				05462C6E2A8E6E210091D9F5 /* Labels.swift */,
+				057727502A8A68FB00132318 /* Localizable.strings */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		05841AF82A88B35200FB3143 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				05841AF92A88B36200FB3143 /* Commands.swift */,
 				05841AFB2A88B38600FB3143 /* AppState.swift */,
 				0577274A2A8A639600132318 /* Languages.swift */,
+				0568D35F2A8F57090086203D /* RecognizerError.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		058C05EE2A8F7D020087E1AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				058C05EF2A8F7D150087E1AC /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,9 +343,15 @@
 				0577274B2A8A639600132318 /* Languages.swift in Sources */,
 				05841AFC2A88B38600FB3143 /* AppState.swift in Sources */,
 				0511F55D2A8684FB003EEBDD /* VoiceCommandsAppApp.swift in Sources */,
+				058C05F02A8F7D150087E1AC /* String.swift in Sources */,
+				05462C712A8E8D720091D9F5 /* AppStateView.swift in Sources */,
+				0568D3632A8F57A20086203D /* CommandModel.swift in Sources */,
 				055025862A8A1AD900C00C17 /* SpeechViewModel.swift in Sources */,
+				0568D3602A8F57090086203D /* RecognizerError.swift in Sources */,
+				05462C6F2A8E6E210091D9F5 /* Labels.swift in Sources */,
 				057B89362A876A65008AE42C /* SpeechRecognizer.swift in Sources */,
-				05841AFE2A88B3A600FB3143 /* CardView.swift in Sources */,
+				05462C732A8E8FD50091D9F5 /* SpeechView.swift in Sources */,
+				05841AFE2A88B3A600FB3143 /* CommandView.swift in Sources */,
 				05841AFA2A88B36200FB3143 /* Commands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
